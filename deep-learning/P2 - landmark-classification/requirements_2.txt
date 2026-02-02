@@ -1,0 +1,9 @@
+matplotlib
+numpy
+torch
+torchvision
+tqdm
+livelossplot
+pytest
+pandas
+seaborn
