@@ -69,10 +69,10 @@ def generate_response(openai_key, user_message: str, context: str,
     except Exception as e:
         return f"Error generating response: {e}"
 
-def evaluate_response_quality(question: str, answer: str, contexts: List[str], openai_key: str = None) -> Dict[str, float]:
+def evaluate_response_quality(question: str, answer: str, contexts: List[str]) -> Dict[str, float]:
     """Evaluate response quality using RAGAS metrics"""
     try:
-        return ragas_evaluator.evaluate_response_quality(question, answer, contexts, openai_key)
+        return ragas_evaluator.evaluate_response_quality(question, answer, contexts)
     except Exception as e:
         return {"error": f"Evaluation failed: {str(e)}"}
 
@@ -239,9 +239,9 @@ def main():
                 if enable_evaluation and RAGAS_AVAILABLE:
                     with st.spinner("Evaluating response quality..."):
                         evaluation_scores = evaluate_response_quality(
-                            prompt,
-                            response,
-                            contexts_list, openai_key
+                            prompt, 
+                            response, 
+                            contexts_list
                         )
                         st.session_state.last_evaluation = evaluation_scores
         
