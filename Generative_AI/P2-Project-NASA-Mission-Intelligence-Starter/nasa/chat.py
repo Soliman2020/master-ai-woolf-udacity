@@ -48,10 +48,10 @@ def initialize_rag_system(chroma_dir: str, collection_name: str):
         return None, False, str(e)
 
 def retrieve_documents(collection, query: str, n_results: int = 3, 
-                      mission_filter: Optional[str] = None) -> Optional[Dict]:
+                      mission_filter: Optional[str] = None, openai_key: str = None) -> Optional[Dict]:
     """Retrieve relevant documents from ChromaDB with optional filtering"""
     try:
-        return rag_client.retrieve_documents(collection, query, n_results, mission_filter)
+        return rag_client.retrieve_documents(collection, query, n_results, mission_filter, openai_key)
     except Exception as e:
         st.error(f"Error retrieving documents: {e}")
         return None
@@ -69,10 +69,10 @@ def generate_response(openai_key, user_message: str, context: str,
     except Exception as e:
         return f"Error generating response: {e}"
 
-def evaluate_response_quality(question: str, answer: str, contexts: List[str]) -> Dict[str, float]:
+def evaluate_response_quality(question: str, answer: str, contexts: List[str], openai_key: str = None) -> Dict[str, float]:
     """Evaluate response quality using RAGAS metrics"""
     try:
-        return ragas_evaluator.evaluate_response_quality(question, answer, contexts)
+        return ragas_evaluator.evaluate_response_quality(question, answer, contexts, openai_key)
     except Exception as e:
         return {"error": f"Evaluation failed: {str(e)}"}
 
@@ -212,9 +212,11 @@ def main():
             with st.spinner("Searching documents and generating response..."):
                 # Retrieve relevant documents
                 docs_result = retrieve_documents(
-                    collection, 
-                    prompt, 
-                    n_docs
+                    collection,
+                    prompt,
+                    n_docs,
+                    None,
+                    openai_key
                 )
                 
                 # Format context
@@ -239,9 +241,10 @@ def main():
                 if enable_evaluation and RAGAS_AVAILABLE:
                     with st.spinner("Evaluating response quality..."):
                         evaluation_scores = evaluate_response_quality(
-                            prompt, 
-                            response, 
-                            contexts_list
+                            prompt,
+                            response,
+                            contexts_list,
+                            openai_key
                         )
                         st.session_state.last_evaluation = evaluation_scores
         
