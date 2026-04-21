@@ -13,7 +13,7 @@ def discover_chroma_backends() -> Dict[str, Dict[str, str]]:
     # Look for ChromaDB directories
     # TODO: Create list of directories that match specific criteria (directory type and name pattern)
     chroma_dirs = list(current_dir.glob("**/chroma_db*"))
-    print(chroma_dirs)
+    # print(chroma_dirs)
     # TODO: Loop through each discovered directory
     for chroma_dir in chroma_dirs:
         if not chroma_dir.is_dir():
