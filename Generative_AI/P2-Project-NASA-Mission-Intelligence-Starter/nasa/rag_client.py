@@ -13,7 +13,7 @@ def discover_chroma_backends() -> Dict[str, Dict[str, str]]:
     # Look for ChromaDB directories
     # TODO: Create list of directories that match specific criteria (directory type and name pattern)
     chroma_dirs = list(current_dir.glob("**/chroma_db*"))
-    
+    print(chroma_dirs)
     # TODO: Loop through each discovered directory
     for chroma_dir in chroma_dirs:
         if not chroma_dir.is_dir():
@@ -25,7 +25,7 @@ def discover_chroma_backends() -> Dict[str, Dict[str, str]]:
             
             # TODO: Retrieve list of available collections from the database
             collections = client.list_collections()
-            
+
             # TODO: Loop through each collection found
             for collection in collections:
                 # TODO: Create unique identifier key combining directory and collection names
@@ -151,7 +151,7 @@ def format_context(documents: List[str], metadatas: List[Dict]) -> str:
 
         
         # TODO: Check document length and truncate if necessary
-        max_doc_length = 500
+        max_doc_length = 4000
         # if len(doc) > max_doc_length:
         #     doc = doc[:max_doc_length] + "..."
         # else:
