@@ -43,7 +43,7 @@ class ChromaEmbeddingPipelineTextOnly:
     """Pipeline for creating ChromaDB collections with OpenAI embeddings - Text files only"""
     
     def __init__(self, 
-                 openai_api_key: str = "voc-341242580126677498268469e38160d05be0.48783907",
+                 openai_api_key: str = os.getenv("OPENAI_API_KEY"),
                  chroma_persist_directory: str = "./chroma_db_openai",
                  collection_name: str = "nasa_space_missions_text",
                  embedding_model: str = "text-embedding-3-small",
@@ -714,7 +714,7 @@ def main():
     parser = argparse.ArgumentParser(description='ChromaDB Embedding Pipeline for NASA Data')
     parser.add_argument('--data-path', default='.', help='Path to data directories')
     # parser.add_argument('--openai-key', required=True, help='OpenAI API key')
-    parser.add_argument('--openai-key', default="voc-341242580126677498268469e38160d05be0.48783907", help='OpenAI API key')
+    parser.add_argument('--openai-key', required=True, help='OpenAI API key')
     parser.add_argument('--chroma-dir', default='./chroma_db_openai', help='ChromaDB persist directory')
     parser.add_argument('--collection-name', default='nasa_space_missions_text', help='Collection name')
     parser.add_argument('--embedding-model', default='text-embedding-3-small', help='OpenAI embedding model')

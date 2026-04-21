@@ -1,0 +1,85 @@
+{
+  "total_questions": 6,
+  "results": [
+    {
+      "id": "q1",
+      "category": "overview",
+      "mission": "apollo_11",
+      "question": "What was the primary objective of the Apollo 11 mission?",
+      "answer": "The primary objective of the Apollo 11 mission was to successfully achieve a manned lunar landing and return to Earth safely [Source2].",
+      "metrics": {
+        "Faithfulness": 0.0,
+        "ResponseRelevancy": 1.0
+      }
+    },
+    {
+      "id": "q2",
+      "category": "emergency",
+      "mission": "apollo_13",
+      "question": "What caused the Apollo 13 mission to be aborted?",
+      "answer": "The provided context does not contain information about the specific cause of the Apollo 13 mission being aborted.",
+      "metrics": {
+        "Faithfulness": 1.0,
+        "ResponseRelevancy": 0.0
+      }
+    },
+    {
+      "id": "q3",
+      "category": "disaster_analysis",
+      "mission": "challenger",
+      "question": "What was the root cause of the Challenger disaster?",
+      "answer": "The provided context does not contain information about the root cause of the Challenger disaster.",
+      "metrics": {
+        "Faithfulness": 0.0,
+        "ResponseRelevancy": 0.0
+      }
+    },
+    {
+      "id": "q4",
+      "category": "crew",
+      "mission": "apollo_11",
+      "question": "Who were the crew members of Apollo 11?",
+      "answer": "The provided context does not contain information about the crew members of Apollo 11.",
+      "metrics": {
+        "Faithfulness": 1.0,
+        "ResponseRelevancy": 0.0
+      }
+    },
+    {
+      "id": "q5",
+      "category": "technical",
+      "mission": "apollo_13",
+      "question": "How did the Apollo 13 crew survive the oxygen tank explosion?",
+      "answer": "The provided context does not contain information about how the Apollo 13 crew survived the oxygen tank explosion.",
+      "metrics": {
+        "Faithfulness": 0.0,
+        "ResponseRelevancy": 0.0
+      }
+    },
+    {
+      "id": "q6",
+      "category": "timeline",
+      "mission": "apollo_11",
+      "question": "What were the key milestones during the Apollo 11 moon landing?",
+      "answer": "The provided context does not contain information about the key milestones during the Apollo 11 moon landing.",
+      "metrics": {
+        "Faithfulness": 1.0,
+        "ResponseRelevancy": 0.0
+      }
+    }
+  ],
+  "aggregate_metrics": {
+    "Faithfulness": {
+      "mean": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "count": 6
+    },
+    "ResponseRelevancy": {
+      "mean": 0.16666666666666666,
+      "min": 0.0,
+      "max": 1.0,
+      "count": 6
+    }
+  }
+}

@@ -58,7 +58,7 @@ def evaluate_response_quality(question: str, answer: str, contexts: List[str], o
         return {"error": f"RAGAS not available - import errors: {'; '.join(_import_errors)}"}
 
     # Use Vocareum API key if not provided
-    api_key = openai_key or os.getenv("OPENAI_API_KEY") or "voc-341242580126677498268469e38160d05be0.48783907"
+    api_key = openai_key or os.getenv("OPENAI_API_KEY")
     base_url = "https://openai.vocareum.com/v1"
 
     # Create evaluator LLM
