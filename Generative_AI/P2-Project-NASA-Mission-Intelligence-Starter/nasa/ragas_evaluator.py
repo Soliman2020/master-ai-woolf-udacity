@@ -5,62 +5,100 @@ from langchain_openai import OpenAIEmbeddings
 from typing import Dict, List, Optional
 import os
 
-# RAGAS imports
+# RAGAS imports - handle different module structures across versions
+RAGAS_AVAILABLE = False
+_import_errors = []
+
 try:
     from ragas import SingleTurnSample
-    from ragas.metrics.collections import BleuScore, NonLLMContextPrecisionWithReference, RougeScore
-    from ragas.metrics import ResponseRelevancy, Faithfulness
     from ragas import evaluate
+    # Try newer metric structure first
+    try:
+        from ragas.metrics import ResponseRelevancy, Faithfulness
+        _new_metrics = True
+    except ImportError:
+        _new_metrics = False
+
+    # Try non-LLM metrics from collections
+    try:
+        from ragas.metrics._metrics import BleuScore, RougeScore
+        from ragas.metrics._context_precision import NonLLMContextPrecisionWithReference
+        _collection_metrics = True
+    except ImportError:
+        try:
+            from ragas.metrics import BleuScore, RougeScore, NonLLMContextPrecisionWithReference
+            _collection_metrics = True
+        except ImportError:
+            _collection_metrics = False
+
     RAGAS_AVAILABLE = True
-except ImportError:
+except ImportError as e:
+    _import_errors.append(str(e))
     RAGAS_AVAILABLE = False
+
 
 def evaluate_response_quality(question: str, answer: str, contexts: List[str], openai_key: str = None) -> Dict[str, float]:
     """Evaluate response quality using RAGAS metrics"""
     if not RAGAS_AVAILABLE:
-        return {"error": "RAGAS not available"}
-    
-    # TODO: Create evaluator LLM with model gpt-3.5-turbo
-    api_key = openai_key or os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        return {"error": "OpenAI API key not provided"}
+        return {"error": f"RAGAS not available - import errors: {'; '.join(_import_errors)}"}
+
+    # Use Vocareum API key if not provided
+    api_key = openai_key or os.getenv("OPENAI_API_KEY") or "voc-341242580126677498268469e38160d05be0.48783901"
+    base_url = "https://openai.vocareum.com/v1"
+
+    # Create evaluator LLM
     evaluator_llm = LangchainLLMWrapper(
-        model=ChatOpenAI(
-            model_name="gpt-3.5-turbo",
-            openai_api_key=api_key,
-            base_url="https://openai.vocareum.com/v1"
+        ChatOpenAI(
+            model="gpt-3.5-turbo",
+            api_key=api_key,
+            base_url=base_url
         )
     )
-    
-    # TODO: Create evaluator_embeddings with model text-embedding-3-small
+
+    # Create evaluator embeddings
     evaluator_embeddings = LangchainEmbeddingsWrapper(
-        model=OpenAIEmbeddings(
-            model_name="text-embedding-3-small",
-            openai_api_key=api_key,
-            base_url="https://openai.vocareum.com/v1"
+        OpenAIEmbeddings(
+            model="text-embedding-3-small",
+            api_key=api_key,
+            base_url=base_url
         )
     )
-    
-    # TODO: Define an instance for each metric to evaluate
-    metrics = [
-        BleuScore(),
-        NonLLMContextPrecisionWithReference(),
-        ResponseRelevancy(),
-        Faithfulness(),
-        RougeScore()
-    ]
-    
-    # create a sample
+
+    # Define metrics to evaluate
+    metrics = []
+
+    try:
+        metrics.append(Faithfulness())
+        metrics.append(ResponseRelevancy())
+    except Exception:
+        pass
+
+    try:
+        metrics.append(NonLLMContextPrecisionWithReference())
+    except Exception:
+        pass
+
+    try:
+        metrics.append(BleuScore())
+        metrics.append(RougeScore())
+    except Exception:
+        pass
+
+    if not metrics:
+        return {"error": "No RAGAS metrics could be initialized"}
+
+    # Create a sample
     sample = SingleTurnSample(
         user_input=question,
         response=answer,
-        retrieved_contexts=contexts
+        retrieved_contexts=contexts if contexts else []
     )
-    
-    # TODO: Evaluate the response using the metrics
+
+    # Evaluate the response using the metrics
     results = {}
 
     for metric in metrics:
+        metric_name = metric.__class__.__name__
         try:
             # Set the LLM and embeddings for metrics that need them
             if hasattr(metric, 'llm'):
@@ -70,14 +108,12 @@ def evaluate_response_quality(question: str, answer: str, contexts: List[str], o
 
             # Calculate the metric score
             score = metric.score(sample)
-            metric_name = metric.__class__.__name__
-            results[metric_name] = score
+            results[metric_name] = round(float(score), 4) if score is not None else 0.0
         except Exception as e:
             # Return the evaluation results even if some metrics fail
-            results[metric.__class__.__name__] = 0.0
-            results[f"{metric.__class__.__name__}_error"] = str(e)
-    
-    # TODO: Return the evaluation results
+            results[metric_name] = 0.0
+            results[f"{metric_name}_error"] = str(e)
+
     return results
 
 
