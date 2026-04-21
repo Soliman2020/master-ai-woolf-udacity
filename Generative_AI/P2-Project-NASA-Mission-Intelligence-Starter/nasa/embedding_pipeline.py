@@ -525,13 +525,24 @@ class ChromaEmbeddingPipelineTextOnly:
             # Add or update in collection
             if ids:
                 try:
-                    self.collection.add(
-                        ids=ids,
-                        documents=texts,
-                        metadatas=metadatas,
-                        embeddings=embeddings
-                    )
-                    logger.debug(f"Added batch of {len(ids)} documents")
+                    if update_mode == 'update':
+                        # Use upsert for update mode: inserts if new, updates if exists
+                        self.collection.upsert(
+                            ids=ids,
+                            documents=texts,
+                            metadatas=metadatas,
+                            embeddings=embeddings
+                        )
+                        logger.debug(f"Upserted batch of {len(ids)} documents")
+                    else:
+                        # For 'skip' and 'replace' modes, use add
+                        self.collection.add(
+                            ids=ids,
+                            documents=texts,
+                            metadatas=metadatas,
+                            embeddings=embeddings
+                        )
+                        logger.debug(f"Added batch of {len(ids)} documents")
                 except Exception as e:
                     logger.error(f"Error adding batch to collection: {e}")
 
