@@ -4,6 +4,7 @@ from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
 from typing import Dict, List, Optional
 import os
+import asyncio
 
 # RAGAS imports - handle different module structures across versions
 RAGAS_AVAILABLE = False
@@ -68,13 +69,23 @@ def evaluate_response_quality(question: str, answer: str, contexts: List[str], o
     metrics = []
 
     try:
-        metrics.append(Faithfulness())
-        metrics.append(ResponseRelevancy())
-    except Exception:
+        faithfulness_metric = Faithfulness()
+        faithfulness_metric.llm = evaluator_llm
+        metrics.append(faithfulness_metric)
+    except Exception as e:
         pass
 
     try:
-        metrics.append(NonLLMContextPrecisionWithReference())
+        relevancy_metric = ResponseRelevancy()
+        relevancy_metric.llm = evaluator_llm
+        relevancy_metric.embeddings = evaluator_embeddings
+        metrics.append(relevancy_metric)
+    except Exception as e:
+        pass
+
+    try:
+        context_precision_metric = NonLLMContextPrecisionWithReference()
+        metrics.append(context_precision_metric)
     except Exception:
         pass
 
@@ -94,25 +105,41 @@ def evaluate_response_quality(question: str, answer: str, contexts: List[str], o
         retrieved_contexts=contexts if contexts else []
     )
 
-    # Evaluate the response using the metrics
+    # Evaluate the response using the metrics (async)
     results = {}
 
-    for metric in metrics:
+    async def evaluate_metric(metric, sample):
+        """Evaluate a single metric asynchronously"""
         metric_name = metric.__class__.__name__
         try:
-            # Set the LLM and embeddings for metrics that need them
-            if hasattr(metric, 'llm'):
-                metric.llm = evaluator_llm
-            if hasattr(metric, 'embeddings'):
-                metric.embeddings = evaluator_embeddings
-
-            # Calculate the metric score
-            score = metric.score(sample)
-            results[metric_name] = round(float(score), 4) if score is not None else 0.0
+            score = await metric.single_turn_ascore(sample)
+            return metric_name, round(float(score), 4) if score is not None else 0.0, None
         except Exception as e:
-            # Return the evaluation results even if some metrics fail
-            results[metric_name] = 0.0
-            results[f"{metric_name}_error"] = str(e)
+            return metric_name, 0.0, str(e)
+
+    async def run_all_metrics():
+        """Run all metrics asynchronously"""
+        tasks = [evaluate_metric(m, sample) for m in metrics]
+        return await asyncio.gather(*tasks)
+
+    # Run async evaluation
+    try:
+        loop = asyncio.get_event_loop()
+        if loop.is_running():
+            # If we're already in an async context (like Streamlit), use nest_asyncio
+            import nest_asyncio
+            nest_asyncio.apply()
+            scores = asyncio.run(run_all_metrics())
+        else:
+            scores = loop.run_until_complete(run_all_metrics())
+    except RuntimeError:
+        # No event loop running, create one
+        scores = asyncio.run(run_all_metrics())
+
+    for metric_name, score, error in scores:
+        results[metric_name] = score
+        if error:
+            results[f"{metric_name}_error"] = error
 
     return results
 
