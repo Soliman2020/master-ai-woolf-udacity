@@ -24,7 +24,6 @@ try:
     RAGAS_AVAILABLE = True
 except ImportError:
     RAGAS_AVAILABLE = False
-    st.warning("RAGAS not available. Install with: pip install ragas")
 
 # Page configuration
 st.set_page_config(
