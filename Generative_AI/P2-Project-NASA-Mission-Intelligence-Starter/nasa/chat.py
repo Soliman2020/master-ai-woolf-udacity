@@ -18,12 +18,8 @@ import llm_client
 from pathlib import Path
 from typing import Dict, List, Optional
 
-# RAGAS imports
-try:
-    from ragas import SingleTurnSample
-    RAGAS_AVAILABLE = True
-except ImportError:
-    RAGAS_AVAILABLE = False
+# Use RAGAS_AVAILABLE from ragas_evaluator module
+RAGAS_AVAILABLE = ragas_evaluator.RAGAS_AVAILABLE
 
 # Page configuration
 st.set_page_config(
