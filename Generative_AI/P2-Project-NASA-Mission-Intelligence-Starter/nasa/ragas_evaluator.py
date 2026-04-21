@@ -80,3 +80,4 @@ def evaluate_response_quality(question: str, answer: str, contexts: List[str], o
     # TODO: Return the evaluation results
     return results
 
+
