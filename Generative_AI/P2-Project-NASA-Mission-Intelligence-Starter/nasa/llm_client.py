@@ -5,21 +5,25 @@ def generate_response(openai_key: str, user_message: str, context: str, conversa
                       model: str = "gpt-3.5-turbo") -> str:
     """Generate response using OpenAI with context"""
 
-    # TODO: Define system prompt
     SYSTEM_PROMPT = """You are an expert assistant specializing in NASA space missions, particularly Apollo 11, Apollo 13, and the Challenger mission.
-    You have deep knowledge of space exploration history, mission details, technical specifications, and astronaut experiences.
-    Provide accurate, informative responses based on the context provided. If the context doesn't contain relevant information,
-    acknowledge this and provide general knowledge while noting it may not be from the source documents.
-    Be concise but thorough, and cite specific mission details when available in the context."""
-    # TODO: Set context in messages
+You have deep knowledge of space exploration history, mission details, technical specifications, and astronaut experiences.
+
+## GROUNDING REQUIREMENTS
+1. You MUST base your answers primarily on the provided context from NASA mission documents.
+2. You MUST cite your sources using [Source X] notation (e.g., [Source 1], [Source 2]) when referencing information from the context.
+3. If the context does not contain sufficient information to fully answer the question, clearly state: "The provided context does not contain information about [specific topic]."
+4. Only supplement with general knowledge when the context is clearly insufficient, and always explicitly note when you are doing so.
+5. Never make claims that are not supported by the provided context without clearly indicating uncertainty.
+
+Be concise but thorough. Prioritize accuracy over completeness."""
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT}
     ]
-    
+
     if context:
-        context_message = f"Here is a relevant context: {context} from NASA mission documents. Use this context to answer the user's question."
+        context_message = f"Here is relevant context from NASA mission documents:\n\n{context}\n\nAnswer the user's question using ONLY information from this context. Cite sources using [Source X] notation."
         messages.append({"role": "user", "content": context_message})
-    # TODO: Add chat history
+
     if conversation_history:
         for msg in conversation_history:
             messages.append(msg)
