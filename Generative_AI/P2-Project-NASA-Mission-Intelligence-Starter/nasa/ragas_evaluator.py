@@ -40,11 +40,25 @@ except ImportError as e:
 
 def evaluate_response_quality(question: str, answer: str, contexts: List[str], openai_key: str = None) -> Dict[str, float]:
     """Evaluate response quality using RAGAS metrics"""
+
+    # Input validation - check for malformed inputs before processing
+    if not isinstance(question, str) or not question.strip():
+        return {"error": "Invalid input: 'question' must be a non-empty string"}
+
+    if not isinstance(answer, str) or not answer.strip():
+        return {"error": "Invalid input: 'answer' must be a non-empty string"}
+
+    if contexts is None:
+        return {"error": "Invalid input: 'contexts' cannot be None (use empty list [] if no context)"}
+
+    if not isinstance(contexts, list):
+        return {"error": "Invalid input: 'contexts' must be a list of strings"}
+
     if not RAGAS_AVAILABLE:
         return {"error": f"RAGAS not available - import errors: {'; '.join(_import_errors)}"}
 
     # Use Vocareum API key if not provided
-    api_key = openai_key or os.getenv("OPENAI_API_KEY") or "voc-341242580126677498268469e38160d05be0.48783901"
+    api_key = openai_key or os.getenv("OPENAI_API_KEY") or "voc-341242580126677498268469e38160d05be0.48783907"
     base_url = "https://openai.vocareum.com/v1"
 
     # Create evaluator LLM
