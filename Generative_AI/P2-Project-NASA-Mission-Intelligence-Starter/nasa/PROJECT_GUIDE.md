@@ -2,20 +2,20 @@
 
 A Retrieval-Augmented Generation (RAG) system for querying NASA space mission documents with real-time RAGAS evaluation.
 
----
+***
 
 ## Project Overview
 
 This project implements a RAG-based chat system that allows users to ask questions about NASA space missions (Apollo 11, Apollo 13, Challenger). It uses ChromaDB for vector storage, OpenAI embeddings for semantic search, and RAGAS metrics for real-time response quality evaluation.
 
----
+***
 
 ## Prerequisites
 
 - Python 3.8 or higher
 - OpenAI API key (or Vocareum API key)
 
----
+***
 
 ## Installation
 
@@ -26,6 +26,7 @@ pip install -r requirements.txt
 ```
 
 This installs all required packages including:
+
 - `chromadb` - Vector database
 - `openai` - OpenAI API client
 - `langchain-openai` - LangChain OpenAI integration
@@ -33,7 +34,7 @@ This installs all required packages including:
 - `streamlit` - Web interface
 - `nest-asyncio` - Async support for Streamlit
 
----
+***
 
 ## Usage
 
@@ -42,10 +43,11 @@ This installs all required packages including:
 Create embeddings from NASA mission documents:
 
 ```bash
-python embedding_pipeline.py --data-path data_text --stats-only
+python embedding_pipeline.py --data-path data_text --stats-only --openai-key "YOUR-OPENAI/VOC-KEY"
 ```
 
 **Options:**
+
 - `--data-path` - Directory containing mission data folders (default: `.`)
 - `--chroma-dir` - ChromaDB persist directory (default: `./chroma_db_openai`)
 - `--collection-name` - Collection name (default: `nasa_space_missions_text`)
@@ -55,16 +57,18 @@ python embedding_pipeline.py --data-path data_text --stats-only
 - `--stats-only` - Show collection statistics only (no processing)
 
 **Example - Full processing:**
+
 ```bash
 python embedding_pipeline.py --data-path data_text --update-mode skip
 ```
 
 **Example - Replace all documents:**
+
 ```bash
 python embedding_pipeline.py --data-path data_text --update-mode replace
 ```
 
----
+***
 
 ### Step 3: Run the Chat Application
 
@@ -75,12 +79,13 @@ streamlit run chat.py
 ```
 
 The application will:
+
 1. Display available ChromaDB backends
 2. Allow you to select a document collection
 3. Provide a chat interface for asking questions
 4. Show real-time RAGAS evaluation metrics
 
----
+***
 
 ### Step 4: Run Batch Evaluation (Optional)
 
@@ -91,13 +96,14 @@ python run_evaluation.py --openai-key "YOUR_OPENAI_KEY" --chroma-dir chroma_db_o
 ```
 
 **Arguments:**
+
 - `--openai-key` - Your OpenAI API key (required)
 - `--chroma-dir` - ChromaDB directory (default: `./chroma_db_openai`)
 - `--collection` - Collection name (default: `nasa_space_missions_text`)
 - `--test-questions` - Test questions JSON file (default: `test_questions.json`)
 - `--output` - Output file for results (default: `evaluation_results.json`)
 
----
+***
 
 ## Project Structure
 
@@ -118,20 +124,20 @@ nasa/
 └── chroma_db_openai/        # ChromaDB vector store
 ```
 
----
+***
 
 ## Key Files
 
-| File | Purpose |
-|------|---------|
-| `embedding_pipeline.py` | Creates ChromaDB collection with OpenAI embeddings |
-| `rag_client.py` | Handles ChromaDB connection, document retrieval, context formatting |
-| `llm_client.py` | Generates LLM responses with context grounding |
-| `ragas_evaluator.py` | Evaluates response quality using RAGAS metrics |
-| `chat.py` | Streamlit web interface for interactive chat |
-| `run_evaluation.py` | Batch evaluation on test questions |
+| File                    | Purpose                                                             |
+| ----------------------- | ------------------------------------------------------------------- |
+| `embedding_pipeline.py` | Creates ChromaDB collection with OpenAI embeddings                  |
+| `rag_client.py`         | Handles ChromaDB connection, document retrieval, context formatting |
+| `llm_client.py`         | Generates LLM responses with context grounding                      |
+| `ragas_evaluator.py`    | Evaluates response quality using RAGAS metrics                      |
+| `chat.py`               | Streamlit web interface for interactive chat                        |
+| `run_evaluation.py`     | Batch evaluation on test questions                                  |
 
----
+***
 
 ## Features
 
@@ -142,21 +148,21 @@ nasa/
 - **Conversation History**: Maintains chat context across multiple turns
 - **Batch Evaluation**: Evaluate system performance on test question sets
 
----
+***
 
 ## RAGAS Metrics
 
 The system evaluates responses using:
 
-| Metric | Description |
-|--------|-------------|
-| **Faithfulness** | How well the answer is grounded in retrieved context |
-| **Response Relevancy** | How relevant the answer is to the question |
-| **BLEU Score** | N-gram overlap metric |
-| **ROUGE Score** | Recall-oriented metric |
-| **Context Precision** | Quality of retrieved context |
+| Metric                 | Description                                          |
+| ---------------------- | ---------------------------------------------------- |
+| **Faithfulness**       | How well the answer is grounded in retrieved context |
+| **Response Relevancy** | How relevant the answer is to the question           |
+| **BLEU Score**         | N-gram overlap metric                                |
+| **ROUGE Score**        | Recall-oriented metric                               |
+| **Context Precision**  | Quality of retrieved context                         |
 
----
+***
 
 ## Configuration
 
@@ -168,26 +174,31 @@ export OPENAI_API_KEY="your-api-key-here"
 
 Or enter the API key directly in the Streamlit interface.
 
----
+***
 
 ## Troubleshooting
 
 ### No ChromaDB backends found
+
 Run the embedding pipeline first:
+
 ```bash
 python embedding_pipeline.py --data-path data_text
 ```
 
 ### RAGAS metrics showing 0.00
+
 Ensure you have a valid OpenAI API key and the RAGAS package is installed correctly.
 
 ### Import errors
+
 Reinstall dependencies:
+
 ```bash
 pip install -r requirements.txt --upgrade
 ```
 
----
+***
 
 ## License
 
