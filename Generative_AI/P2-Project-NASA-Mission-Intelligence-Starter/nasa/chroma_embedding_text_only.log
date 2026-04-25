@@ -1,0 +1,247 @@
+2026-04-19 20:21:06,601 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 20:21:06,891 - INFO - Starting text data processing with update mode: skip
+2026-04-19 20:21:06,892 - INFO - Scanning directory: data_text\apollo11
+2026-04-19 20:21:06,892 - INFO - Found 6 text files in apollo11
+2026-04-19 20:21:06,892 - INFO - Scanning directory: data_text\apollo13
+2026-04-19 20:21:06,893 - INFO - Found 3 text files in apollo13
+2026-04-19 20:21:06,893 - INFO - Scanning directory: data_text\challenger
+2026-04-19 20:21:06,893 - INFO - Found 3 text files in challenger
+2026-04-19 20:21:06,894 - INFO - Total text files to process: 12
+2026-04-19 20:21:06,894 - INFO - Files by mission:
+2026-04-19 20:21:06,894 - INFO -   apollo_11: 6 files
+2026-04-19 20:21:06,894 - INFO -   apollo_13: 3 files
+2026-04-19 20:21:06,894 - INFO -   challenger: 3 files
+2026-04-19 20:21:06,894 - INFO - Processing file: data_text\apollo11\19900066485_textract_full_text.txt
+2026-04-19 20:21:09,152 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:10,195 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:11,040 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:11,972 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:12,773 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:13,776 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:14,641 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:15,460 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:16,248 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:17,076 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:17,981 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:18,986 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:20,233 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:22,159 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:23,045 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:23,824 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:24,622 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:25,465 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:26,356 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:27,117 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:27,927 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:28,672 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:29,535 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:30,385 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:31,239 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:32,074 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:32,907 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:33,711 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:34,672 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:35,969 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:36,875 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:37,687 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:38,486 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:39,309 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:40,202 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:40,963 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:41,764 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:42,567 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:43,382 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:44,228 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:45,051 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:45,954 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:46,852 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:50,350 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:51,415 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:52,167 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:53,163 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:53,900 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:54,678 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:55,527 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:56,577 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:57,373 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:58,204 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:21:59,338 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:00,159 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:00,947 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:01,757 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:02,522 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:03,454 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:04,388 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:05,176 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:06,090 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:06,907 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:07,686 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:08,547 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:09,391 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:10,199 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:11,052 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:11,817 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:12,588 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:13,404 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:14,167 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:15,040 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:16,162 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:16,992 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:17,776 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:18,585 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:19,453 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:22:20,364 - INFO - HTTP Request: POST https://openai.vocareum.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-19 20:23:29,031 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 20:23:29,224 - INFO - Collection Statistics:
+2026-04-19 20:23:29,253 - INFO - total_documents: 50
+2026-04-19 20:23:29,253 - INFO - missions: {'apollo_11': 50}
+2026-04-19 20:23:29,253 - INFO - data_types: {'textract_extracted': 50}
+2026-04-19 20:23:29,254 - INFO - document_categories: {'technical_report': 50}
+2026-04-19 20:23:29,254 - INFO - file_types: {'text': 50}
+2026-04-19 20:29:21,591 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 20:29:21,832 - INFO - Collection Statistics:
+2026-04-19 20:29:21,858 - INFO - total_documents: 50
+2026-04-19 20:29:21,858 - INFO - missions: {'apollo_11': 50}
+2026-04-19 20:29:21,859 - INFO - data_types: {'textract_extracted': 50}
+2026-04-19 20:29:21,859 - INFO - document_categories: {'technical_report': 50}
+2026-04-19 20:29:21,859 - INFO - file_types: {'text': 50}
+2026-04-19 20:56:00,428 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 20:56:00,627 - INFO - Collection Statistics:
+2026-04-19 20:56:00,653 - INFO - total_documents: 50
+2026-04-19 20:56:00,654 - INFO - missions: {'apollo_11': 50}
+2026-04-19 20:56:00,654 - INFO - data_types: {'textract_extracted': 50}
+2026-04-19 20:56:00,654 - INFO - document_categories: {'technical_report': 50}
+2026-04-19 20:56:00,654 - INFO - file_types: {'text': 50}
+2026-04-19 21:06:52,392 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 21:06:52,594 - INFO - Collection Statistics:
+2026-04-19 21:06:52,620 - INFO - total_documents: 50
+2026-04-19 21:06:52,621 - INFO - missions: {'apollo_11': 50}
+2026-04-19 21:06:52,621 - INFO - data_types: {'textract_extracted': 50}
+2026-04-19 21:06:52,621 - INFO - document_categories: {'technical_report': 50}
+2026-04-19 21:06:52,621 - INFO - file_types: {'text': 50}
+2026-04-19 21:22:20,100 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 21:22:20,310 - INFO - Collection Statistics:
+2026-04-19 21:22:20,337 - INFO - total_documents: 50
+2026-04-19 21:22:20,337 - INFO - missions: {'apollo_11': 50}
+2026-04-19 21:22:20,338 - INFO - data_types: {'textract_extracted': 50}
+2026-04-19 21:22:20,338 - INFO - document_categories: {'technical_report': 50}
+2026-04-19 21:22:20,338 - INFO - file_types: {'text': 50}
+2026-04-19 21:32:01,927 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 21:32:02,211 - INFO - Collection Statistics:
+2026-04-19 21:32:02,244 - INFO - total_documents: 50
+2026-04-19 21:32:02,246 - INFO - missions: {'apollo_11': 50}
+2026-04-19 21:32:02,246 - INFO - data_types: {'textract_extracted': 50}
+2026-04-19 21:32:02,246 - INFO - document_categories: {'technical_report': 50}
+2026-04-19 21:32:02,247 - INFO - file_types: {'text': 50}
+2026-04-19 21:40:08,430 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 21:40:08,674 - INFO - Collection Statistics:
+2026-04-19 21:40:08,712 - INFO - total_documents: 50
+2026-04-19 21:40:08,712 - INFO - missions: {'apollo_11': 50}
+2026-04-19 21:40:08,714 - INFO - data_types: {'textract_extracted': 50}
+2026-04-19 21:40:08,714 - INFO - document_categories: {'technical_report': 50}
+2026-04-19 21:40:08,714 - INFO - file_types: {'text': 50}
+2026-04-19 21:49:50,548 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 21:49:50,808 - INFO - Collection Statistics:
+2026-04-19 21:49:50,866 - INFO - total_documents: 50
+2026-04-19 21:49:50,866 - INFO - missions: {'apollo_11': 50}
+2026-04-19 21:49:50,866 - INFO - data_types: {'textract_extracted': 50}
+2026-04-19 21:49:50,867 - INFO - document_categories: {'technical_report': 50}
+2026-04-19 21:49:50,867 - INFO - file_types: {'text': 50}
+2026-04-19 22:18:18,661 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-19 22:18:19,512 - INFO - Collection Statistics:
+2026-04-19 22:18:19,563 - INFO - total_documents: 50
+2026-04-19 22:18:19,563 - INFO - missions: {'apollo_11': 50}
+2026-04-19 22:18:19,563 - INFO - data_types: {'textract_extracted': 50}
+2026-04-19 22:18:19,563 - INFO - document_categories: {'technical_report': 50}
+2026-04-19 22:18:19,563 - INFO - file_types: {'text': 50}
+2026-04-21 03:32:42,797 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 03:32:43,001 - INFO - Collection Statistics:
+2026-04-21 03:32:43,030 - INFO - total_documents: 50
+2026-04-21 03:32:43,030 - INFO - missions: {'apollo_11': 50}
+2026-04-21 03:32:43,030 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 03:32:43,031 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 03:32:43,031 - INFO - file_types: {'text': 50}
+2026-04-21 03:42:03,474 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 03:42:03,681 - INFO - Collection Statistics:
+2026-04-21 03:42:03,706 - INFO - total_documents: 50
+2026-04-21 03:42:03,706 - INFO - missions: {'apollo_11': 50}
+2026-04-21 03:42:03,707 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 03:42:03,707 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 03:42:03,707 - INFO - file_types: {'text': 50}
+2026-04-21 04:03:20,032 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 04:03:20,237 - INFO - Collection Statistics:
+2026-04-21 04:03:20,265 - INFO - total_documents: 50
+2026-04-21 04:03:20,265 - INFO - missions: {'apollo_11': 50}
+2026-04-21 04:03:20,265 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 04:03:20,265 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 04:03:20,265 - INFO - file_types: {'text': 50}
+2026-04-21 04:19:37,026 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 04:19:37,216 - INFO - Collection Statistics:
+2026-04-21 04:19:37,246 - INFO - total_documents: 50
+2026-04-21 04:19:37,246 - INFO - missions: {'apollo_11': 50}
+2026-04-21 04:19:37,247 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 04:19:37,247 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 04:19:37,247 - INFO - file_types: {'text': 50}
+2026-04-21 04:41:10,761 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 04:41:10,987 - INFO - Collection Statistics:
+2026-04-21 04:41:11,018 - INFO - total_documents: 50
+2026-04-21 04:41:11,018 - INFO - missions: {'apollo_11': 50}
+2026-04-21 04:41:11,019 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 04:41:11,019 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 04:41:11,019 - INFO - file_types: {'text': 50}
+2026-04-21 04:50:09,089 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 04:50:09,302 - INFO - Collection Statistics:
+2026-04-21 04:50:09,335 - INFO - total_documents: 50
+2026-04-21 04:50:09,335 - INFO - missions: {'apollo_11': 50}
+2026-04-21 04:50:09,335 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 04:50:09,335 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 04:50:09,335 - INFO - file_types: {'text': 50}
+2026-04-21 05:21:38,036 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 05:21:38,262 - INFO - Collection Statistics:
+2026-04-21 05:21:38,291 - INFO - total_documents: 50
+2026-04-21 05:21:38,292 - INFO - missions: {'apollo_11': 50}
+2026-04-21 05:21:38,292 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 05:21:38,292 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 05:21:38,292 - INFO - file_types: {'text': 50}
+2026-04-21 05:35:12,070 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 05:35:12,381 - INFO - Collection Statistics:
+2026-04-21 05:35:12,413 - INFO - total_documents: 50
+2026-04-21 05:35:12,414 - INFO - missions: {'apollo_11': 50}
+2026-04-21 05:35:12,414 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 05:35:12,414 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 05:35:12,414 - INFO - file_types: {'text': 50}
+2026-04-21 05:55:44,470 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 05:55:44,659 - INFO - Collection Statistics:
+2026-04-21 05:55:44,703 - INFO - total_documents: 50
+2026-04-21 05:55:44,703 - INFO - missions: {'apollo_11': 50}
+2026-04-21 05:55:44,703 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 05:55:44,703 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 05:55:44,703 - INFO - file_types: {'text': 50}
+2026-04-21 14:25:04,358 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 14:25:04,559 - INFO - Collection Statistics:
+2026-04-21 14:25:04,588 - INFO - total_documents: 50
+2026-04-21 14:25:04,588 - INFO - missions: {'apollo_11': 50}
+2026-04-21 14:25:04,588 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 14:25:04,589 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 14:25:04,589 - INFO - file_types: {'text': 50}
+2026-04-21 15:46:17,076 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 15:46:17,404 - INFO - Collection Statistics:
+2026-04-21 15:46:17,463 - INFO - total_documents: 50
+2026-04-21 15:46:17,463 - INFO - missions: {'apollo_11': 50}
+2026-04-21 15:46:17,464 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 15:46:17,464 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 15:46:17,464 - INFO - file_types: {'text': 50}
+2026-04-21 15:55:54,953 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 15:55:55,201 - INFO - Collection Statistics:
+2026-04-21 15:55:55,237 - INFO - total_documents: 50
+2026-04-21 15:55:55,238 - INFO - missions: {'apollo_11': 50}
+2026-04-21 15:55:55,238 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 15:55:55,238 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 15:55:55,238 - INFO - file_types: {'text': 50}
+2026-04-21 16:05:47,323 - INFO - Initializing ChromaDB Embedding Pipeline...
+2026-04-21 16:05:47,549 - INFO - Collection Statistics:
+2026-04-21 16:05:47,576 - INFO - total_documents: 50
+2026-04-21 16:05:47,576 - INFO - missions: {'apollo_11': 50}
+2026-04-21 16:05:47,576 - INFO - data_types: {'textract_extracted': 50}
+2026-04-21 16:05:47,576 - INFO - document_categories: {'technical_report': 50}
+2026-04-21 16:05:47,577 - INFO - file_types: {'text': 50}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "q1",
+    "category": "overview",
+    "mission": "apollo_11",
+    "question": "What was the primary objective of the Apollo 11 mission?"
+  },
+  {
+    "id": "q2",
+    "category": "emergency",
+    "mission": "apollo_13",
+    "question": "What caused the Apollo 13 mission to be aborted?"
+  },
+  {
+    "id": "q3",
+    "category": "disaster_analysis",
+    "mission": "challenger",
+    "question": "What was the root cause of the Challenger disaster?"
+  },
+  {
+    "id": "q4",
+    "category": "crew",
+    "mission": "apollo_11",
+    "question": "Who were the crew members of Apollo 11?"
+  },
+  {
+    "id": "q5",
+    "category": "technical",
+    "mission": "apollo_13",
+    "question": "How did the Apollo 13 crew survive the oxygen tank explosion?"
+  },
+  {
+    "id": "q6",
+    "category": "timeline",
+    "mission": "apollo_11",
+    "question": "What were the key milestones during the Apollo 11 moon landing?"
+  }
+]
